@@ -24,7 +24,14 @@
 	<div
 		class="flex h-2/3 w-full items-center justify-center overflow-hidden rounded-t-4xl border-x-12 border-t-12 border-neutral-200 [mask-image:linear-gradient(to_bottom,black_60%,transparent)]"
 	>
-		<img class="h-full w-full object-cover" src="/example.webp" alt="app preview" />
+		<img
+			class="h-full w-full object-cover"
+			src="/example.webp"
+			alt="app preview"
+			fetchpriority="high"
+			width="4596"
+			height="2236"
+		/>
 	</div>
 </div>
 

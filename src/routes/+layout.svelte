@@ -18,7 +18,7 @@
 		content="Dooform, แปลเอกสารราชการ, แปลเอกสารยื่นวีซ่า, แปลทะเบียนบ้าน, แปลบัตรประชาชน, แบบฟอร์มแปลเอกสาร, จัดหน้าเอกสารแปล, Thai Official Document Translation"
 	/>
 	<meta name="robots" content="index, follow" />
-	<a rel="canonical" href="https://dooform.com" />
+	<link rel="canonical" href="https://dooform.com" />
 
 	<!-- OpenGraph -->
 	<meta property="og:title" content="Dooform | แปลเอกสารราชการไทย-อังกฤษ มาตรฐานสากล" />
@@ -64,7 +64,15 @@
 	<link
 		href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@100;200;300;400;500;600;700&family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&display=swap"
 		rel="stylesheet"
+		media="print"
+		onload="this.media='all'"
 	/>
+	<noscript>
+		<link
+			href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@100;200;300;400;500;600;700&family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+	</noscript>
 </svelte:head>
 
 <nav

@@ -125,6 +125,10 @@
 								src={slide.image}
 								alt={slide.title}
 								class="absolute h-full w-full object-cover"
+								loading="lazy"
+								decoding="async"
+								width="4000"
+								height="2250"
 							/>
 						</div>
 					</div>
