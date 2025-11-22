@@ -68,14 +68,14 @@
 </svelte:head>
 
 <nav
-	class="border-b-qt-700 bg-background/50 sticky top-0 z-50 flex h-16 w-full items-center justify-center border-b px-6 font-sans backdrop-blur-xl"
+	class="bg-background/50 sticky top-0 z-50 flex h-16 w-full items-center justify-center border-b border-b-qt-700 px-6 font-sans backdrop-blur-xl"
 >
 	<div class="mx-auto flex w-full max-w-7xl items-center justify-between">
 		<section class="flex items-center gap-12">
 			<a href="/" class="flex items-center">
 				<img src={logo} alt="logo" class="my-2 h-8" />
 			</a>
-			<ul class="text-ms-500 hidden items-center gap-6 text-sm font-medium md:flex">
+			<ul class="hidden items-center gap-6 text-sm font-medium text-ms-500 md:flex">
 				<li class="flex items-center gap-2">
 					<a href="#">ผลิตภัณฑ์</a><ChevronDown class="w-5" />
 				</li>
@@ -90,12 +90,13 @@
 		</section>
 		<a
 			href="https://app.dooform.com/"
-			class="bg-on-900 text-ag-600 flex h-8 items-center justify-center rounded-full px-1.5 text-sm font-medium"
+			class="flex h-8 items-center justify-center rounded-full bg-on-900 px-1.5 text-sm font-medium text-ag-600"
 		>
 			<p class="px-1.5">เข้าสู่ระบบ</p>
 		</a>
 	</div>
-</nav>{@render children()}
+</nav>
+{@render children()}
 <footer class="flex w-full justify-between font-sans text-sm">
 	<div class="mx-auto flex w-full max-w-7xl flex-col items-start gap-6 rounded-xl p-6 text-cb-900">
 		<div class="flex w-full flex-col items-start justify-between gap-6 lg:flex-row lg:gap-2">
