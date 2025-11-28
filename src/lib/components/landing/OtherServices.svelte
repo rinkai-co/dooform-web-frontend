@@ -11,7 +11,15 @@
 		{ title: 'รับรองเอกสารยื่น\nสถานทูต', subtitle: 'Business Solution', desc: 'Dooform มีบริการ Webhooks สำหรับ\nบริการในรูปแบบธุรกิจพร้อมให้ใช้งาน', btn: 'อ่านเอกสาร', img: '/landing-assets/service-card-3.webp', textLight: false }
 	] as service}
 		<div class="relative flex h-[332px] w-[249px] flex-col items-start justify-between rounded-md p-4 overflow-hidden">
-			<img src={service.img} alt={service.title} class="absolute inset-0 h-full w-full object-cover rounded-md" />
+			<img
+				src={service.img}
+				alt={service.title}
+				class="absolute inset-0 h-full w-full object-cover rounded-md"
+				loading="lazy"
+				decoding="async"
+				width="400"
+				height="533"
+			/>
 			<div class="relative z-10 flex w-full flex-col items-start gap-0.5 {service.textLight ? 'text-neutral-100' : 'text-neutral-800'}">
 				<p class="text-xs w-full">{service.subtitle}</p>
 				<p class="tp-h2 w-full whitespace-pre-line">{service.title}</p>

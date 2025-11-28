@@ -57,11 +57,11 @@
 								<div class="flex items-center justify-center gap-2.5 rounded bg-gray-100 px-0.5 py-0.5">
 									<p class="text-xs font-mono text-black">{item.id}</p>
 								</div>
-								<p class="text-sm text-cb-400">{item.date}</p>
+								<p class="text-sm text-neutral-600">{item.date}</p>
 							</div>
 							<div class="flex w-full flex-col items-start">
 								<p class="tp-body font-semibold text-neutral-800 w-full">{item.title}</p>
-								<p class="text-sm text-cb-400">ลูกค้า: คุณ <span class="font-medium">{item.customer}</span></p>
+								<p class="text-sm text-neutral-600">ลูกค้า: คุณ <span class="font-medium text-neutral-800">{item.customer}</span></p>
 							</div>
 						</div>
 						<div class="flex items-center gap-3">

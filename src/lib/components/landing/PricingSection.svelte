@@ -104,5 +104,5 @@
 			{/if}
 		{/each}
 	</div>
-	<p class="text-xs text-neutral-500">แพ็กเกจทั้งหมดเรียกเก็บเงินเป็นรายเดือน ทุกราคา ฿THB</p>
+	<p class="text-xs text-neutral-600">แพ็กเกจทั้งหมดเรียกเก็บเงินเป็นรายเดือน ทุกราคา ฿THB</p>
 </div>
