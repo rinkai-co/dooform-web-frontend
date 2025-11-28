@@ -5,9 +5,11 @@
 	--font-sans: 'IBM Plex Sans Thai';
 	--font-looped: 'IBM Plex Sans Thai Looped';
 }
-
-background-color {
+:root {
 	background-color: #f0eeea;
+}
+background-color {
+	background-color: #a6a09b;
 }
 
 @utility footer-link {

@@ -68,7 +68,7 @@
 </svelte:head>
 
 <nav
-	class="bg-background/50 sticky top-0 z-50 flex h-16 w-full items-center justify-center border-b border-b-qt-700 px-6 font-sans backdrop-blur-xl"
+	class="bg-background/50 sticky top-0 z-50 flex h-16 w-full items-center justify-center border-b border-b-qt-700/10 px-6 font-sans backdrop-blur-xl"
 >
 	<div class="mx-auto flex w-full max-w-7xl items-center justify-between">
 		<section class="flex items-center gap-12">

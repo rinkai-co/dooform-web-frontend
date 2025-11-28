@@ -58,8 +58,8 @@
 	};
 </script>
 
-<section class="mx-auto w-full max-w-7xl px-6 py-8 md:px-8 md:py-16">
-	<div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+<section class="col-span-3 w-full border-b-[1.5px] border-pl-700 px-0 py-9">
+	<div class="grid grid-cols-1 gap-8 px-6 md:grid-cols-3">
 		<!-- Left Column - Header & Controls -->
 		<div class="flex h-full flex-col justify-between md:col-span-1">
 			<div class="flex flex-col gap-4">

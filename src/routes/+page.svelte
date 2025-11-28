@@ -1,9 +1,17 @@
 <script>
 	import TestimonialSlider from '$lib/components/TestimonialSlider.svelte';
+	import CompanyLogos from '$lib/components/landing/CompanyLogos.svelte';
+	import DocumentSection from '$lib/components/landing/DocumentSection.svelte';
+	import APIIntegration from '$lib/components/landing/APIIntegration.svelte';
+	import FileHistory from '$lib/components/landing/FileHistory.svelte';
+	import FeaturesGrid from '$lib/components/landing/FeaturesGrid.svelte';
+	import OtherServices from '$lib/components/landing/OtherServices.svelte';
+	import PricingSection from '$lib/components/landing/PricingSection.svelte';
+	import SignUpSection from '$lib/components/landing/SignUpSection.svelte';
 </script>
 
 <div
-	class="mx-auto flex h-screen w-full max-w-7xl flex-col items-center justify-center rounded-2xl font-sans"
+	class="mx-auto flex h-screen w-full max-w-[1216px] flex-col items-center justify-center rounded-2xl font-sans"
 >
 	<div class="flex w-full flex-col items-center justify-center gap-4 py-8">
 		<div class="flex flex-col items-center justify-center">
@@ -35,4 +43,25 @@
 	</div>
 </div>
 
-<TestimonialSlider />
+<!-- Landing Page Sections -->
+<div class="flex w-full flex-col items-center">
+	<div class="grid w-full max-w-[1216px] mx-auto grid-cols-3 border-x-[1.5px] border-pl-700">
+		<TestimonialSlider />
+		
+		<CompanyLogos />
+
+		<DocumentSection />
+
+		<APIIntegration />
+
+		<FileHistory />
+
+		<FeaturesGrid />
+
+		<OtherServices />
+
+		<PricingSection />
+
+		<SignUpSection />
+	</div>
+</div>
