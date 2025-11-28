@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { X } from '@lucide/svelte';
+	import { fade, fly } from 'svelte/transition';
 
 	// Extend Window interface for GTM
 	declare global {
@@ -99,148 +99,166 @@
 	}
 
 	function closePopup() {
-		showPopup = false;
+		// Treat closing the popup as accepting necessary cookies only
+		acceptNecessary();
 	}
 </script>
 
 {#if showPopup}
-	<div
-		class="fixed inset-0 z-100 flex items-end justify-center bg-black/20 backdrop-blur-sm sm:items-center"
-	>
+	{#if !showPreferences}
+		<!-- Main Cookie Banner -->
 		<div
-			class="relative mx-4 mb-4 w-full max-w-2xl rounded-2xl border border-qt-700/20 bg-white p-6 font-sans shadow-2xl sm:mb-0 sm:p-8"
+			class="fixed bottom-0 left-0 right-0 z-100 bg-white shadow-2xl"
+			transition:fly={{ y: 100, duration: 400 }}
 		>
-			<button
-				onclick={closePopup}
-				class="absolute right-4 top-4 rounded-full p-1 text-ms-500 transition-colors hover:bg-qt-600 hover:text-on-900"
-				aria-label="ปิด"
-			>
-				<X class="h-5 w-5" />
-			</button>
+			<div class="mx-auto max-w-7xl px-6 py-6 font-sans sm:px-8 sm:py-8">
+				<h2 class="tp-h3 mb-4 text-on-900">เกี่ยวกับคุกกี้บน Dooform</h2>
 
-			{#if !showPreferences}
-				<div class="flex flex-col gap-4">
-					<div class="flex flex-col gap-2">
-						<h2 class="tp-h2 text-on-900">🍪 เราใช้คุกกี้</h2>
-						<p class="tp-body text-ms-600">
-							เราใช้คุกกี้เพื่อปรับปรุงประสบการณ์การใช้งาน วิเคราะห์การใช้งาน
-							และนำเสนอเนื้อหาที่เหมาะสมกับคุณ
-							คุณสามารถเลือกประเภทคุกกี้ที่ยอมรับได้ในการตั้งค่า
-						</p>
-					</div>
+				<div class="mb-6">
+					<p class="tp-body text-ms-600">
+						ยินดีต้อนรับ! เว็บไซต์นี้ใช้คุกกี้เพื่อวัดการเข้าใช้งานเว็บไซต์
+						เพื่อปรับปรุงการทำงานและการบริหารจัดการ และด้วยความยินยอมของคุณ
+						เพื่อประเมินประสิทธิภาพของแคมเปญข้อมูลภาครัฐและปรับปรุงประสบการณ์ผู้ใช้ของคุณ
+						รวมถึงเพื่อนำเสนอบริการเชิงโต้ตอบที่จัดทำโดยพันธมิตรของเรา เราจะเก็บตัวเลือกของคุณไว้ 6
+						เดือน คุณสามารถเปลี่ยนตัวเลือกนี้ได้ทุกเมื่อโดยไปที่หน้า
+						<a href="/privacy" class="text-sp-500 underline hover:text-sp-600"
+							>นโยบายความเป็นส่วนตัวและคุกกี้</a
+						>
+					</p>
+				</div>
 
-					<div class="flex flex-col gap-3 sm:flex-row">
+				<ul class="flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
+					<li>
+						<button
+							onclick={() => (showPreferences = true)}
+							class="w-full rounded-lg border-2 border-on-900 bg-transparent px-6 py-3 text-sm font-medium text-on-900 transition-all hover:bg-qt-600 sm:w-auto"
+							aria-label="ปรับแต่ง"
+							type="button"
+						>
+							ปรับแต่ง
+						</button>
+					</li>
+					<li>
+						<button
+							onclick={acceptNecessary}
+							class="w-full rounded-lg border-2 border-on-900 bg-transparent px-6 py-3 text-sm font-medium text-on-900 transition-all hover:bg-qt-600 sm:w-auto"
+							aria-label="ปฏิเสธทั้งหมด"
+							type="button"
+						>
+							ปฏิเสธทั้งหมด
+						</button>
+					</li>
+					<li>
 						<button
 							onclick={acceptAll}
-							class="flex-1 rounded-full bg-on-900 px-6 py-3 text-sm font-semibold text-ag-600 transition-all hover:bg-on-800 hover:shadow-lg"
+							class="w-full rounded-lg bg-on-900 px-6 py-3 text-sm font-semibold text-ag-600 transition-all hover:bg-on-800 hover:shadow-lg sm:w-auto"
+							aria-label="ยอมรับทั้งหมด"
+							type="button"
 						>
 							ยอมรับทั้งหมด
 						</button>
-						<button
-							onclick={acceptNecessary}
-							class="flex-1 rounded-full border-2 border-on-900 bg-transparent px-6 py-3 text-sm font-semibold text-on-900 transition-all hover:bg-qt-600"
-						>
-							จำเป็นเท่านั้น
-						</button>
-						<button
-							onclick={() => (showPreferences = true)}
-							class="flex-1 rounded-full border border-qt-700 bg-transparent px-6 py-3 text-sm font-medium text-ms-600 transition-all hover:border-on-900 hover:text-on-900"
-						>
-							ตั้งค่า
-						</button>
-					</div>
-
-					<a
-						href="/privacy"
-						class="footer-link tp-tools text-center text-ms-500 hover:text-on-900"
-					>
-						อ่านนโยบายการจัดเก็บข้อมูล
-					</a>
-				</div>
-			{:else}
+					</li>
+				</ul>
+			</div>
+		</div>
+	{:else}
+		<!-- Preferences Modal -->
+		<div
+			class="fixed inset-0 z-100 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm"
+			transition:fade={{ duration: 300 }}
+		>
+			<div
+				class="relative w-full max-w-3xl rounded-xl bg-white p-6 font-sans shadow-2xl sm:p-8"
+				transition:fly={{ y: 50, duration: 400 }}
+			>
 				<div class="flex flex-col gap-6">
 					<div class="flex flex-col gap-2">
 						<h2 class="tp-h2 text-on-900">ตั้งค่าคุกกี้</h2>
-						<p class="tp-tools text-ms-600">
-							เลือกประเภทคุกกี้ที่คุณต้องการยอมรับ
-						</p>
+						<p class="tp-body text-ms-600">เลือกประเภทคุกกี้ที่คุณต้องการยอมรับ</p>
 					</div>
 
 					<div class="flex flex-col gap-4">
 						<!-- Necessary Cookies -->
-						<div class="flex items-start gap-4 rounded-xl border border-qt-700/30 bg-qt-100 p-4">
-							<input
-								type="checkbox"
-								id="necessary"
-								bind:checked={preferences.necessary}
-								disabled
-								class="mt-1 h-5 w-5 rounded accent-on-900"
-							/>
-							<div class="flex flex-col gap-1">
-								<label for="necessary" class="tp-h-sub font-semibold text-on-900">
-									คุกกี้ที่จำเป็น
-									<span class="tp-tools ml-2 text-ms-500">(บังคับ)</span>
-								</label>
-								<p class="tp-tools text-ms-600">
-									คุกกี้ที่จำเป็นสำหรับการทำงานพื้นฐานของเว็บไซต์
-									เช่น การเข้าสู่ระบบและความปลอดภัย
-								</p>
+						<div class="rounded-lg border border-qt-700/30 bg-qt-100 p-4">
+							<div class="flex items-start gap-4">
+								<input
+									type="checkbox"
+									id="necessary"
+									bind:checked={preferences.necessary}
+									disabled
+									class="mt-1 h-5 w-5 rounded accent-on-900"
+								/>
+								<div class="flex flex-1 flex-col gap-1">
+									<label for="necessary" class="tp-h-sub font-semibold text-on-900">
+										คุกกี้ที่จำเป็น
+										<span class="tp-tools ml-2 font-normal text-ms-500">(บังคับ)</span>
+									</label>
+									<p class="tp-tools text-ms-600">
+										คุกกี้ที่จำเป็นสำหรับการทำงานพื้นฐานของเว็บไซต์ เช่น การเข้าสู่ระบบและความปลอดภัย
+									</p>
+								</div>
 							</div>
 						</div>
 
 						<!-- Analytics Cookies -->
-						<div class="flex items-start gap-4 rounded-xl border border-qt-700/30 bg-white p-4">
-							<input
-								type="checkbox"
-								id="analytics"
-								bind:checked={preferences.analytics}
-								class="mt-1 h-5 w-5 rounded accent-on-900"
-							/>
-							<div class="flex flex-col gap-1">
-								<label for="analytics" class="tp-h-sub font-semibold text-on-900">
-									คุกกี้เพื่อการวิเคราะห์
-								</label>
-								<p class="tp-tools text-ms-600">
-									ช่วยให้เราเข้าใจวิธีการใช้งานเว็บไซต์เพื่อปรับปรุงประสบการณ์ของคุณ
-								</p>
+						<div class="rounded-lg border border-qt-700/30 bg-white p-4">
+							<div class="flex items-start gap-4">
+								<input
+									type="checkbox"
+									id="analytics"
+									bind:checked={preferences.analytics}
+									class="mt-1 h-5 w-5 rounded accent-on-900"
+								/>
+								<div class="flex flex-1 flex-col gap-1">
+									<label for="analytics" class="tp-h-sub font-semibold text-on-900">
+										คุกกี้เพื่อการวิเคราะห์
+									</label>
+									<p class="tp-tools text-ms-600">
+										ช่วยให้เราเข้าใจวิธีการใช้งานเว็บไซต์เพื่อปรับปรุงประสบการณ์ของคุณ
+									</p>
+								</div>
 							</div>
 						</div>
 
 						<!-- Marketing Cookies -->
-						<div class="flex items-start gap-4 rounded-xl border border-qt-700/30 bg-white p-4">
-							<input
-								type="checkbox"
-								id="marketing"
-								bind:checked={preferences.marketing}
-								class="mt-1 h-5 w-5 rounded accent-on-900"
-							/>
-							<div class="flex flex-col gap-1">
-								<label for="marketing" class="tp-h-sub font-semibold text-on-900">
-									คุกกี้เพื่อการตลาด
-								</label>
-								<p class="tp-tools text-ms-600">
-									ใช้เพื่อแสดงโฆษณาและเนื้อหาที่เกี่ยวข้องกับความสนใจของคุณ
-								</p>
+						<div class="rounded-lg border border-qt-700/30 bg-white p-4">
+							<div class="flex items-start gap-4">
+								<input
+									type="checkbox"
+									id="marketing"
+									bind:checked={preferences.marketing}
+									class="mt-1 h-5 w-5 rounded accent-on-900"
+								/>
+								<div class="flex flex-1 flex-col gap-1">
+									<label for="marketing" class="tp-h-sub font-semibold text-on-900">
+										คุกกี้เพื่อการตลาด
+									</label>
+									<p class="tp-tools text-ms-600">
+										ใช้เพื่อแสดงโฆษณาและเนื้อหาที่เกี่ยวข้องกับความสนใจของคุณ
+									</p>
+								</div>
 							</div>
 						</div>
 					</div>
 
-					<div class="flex flex-col gap-3 sm:flex-row">
-						<button
-							onclick={savePreferences}
-							class="flex-1 rounded-full bg-on-900 px-6 py-3 text-sm font-semibold text-ag-600 transition-all hover:bg-on-800 hover:shadow-lg"
-						>
-							บันทึกการตั้งค่า
-						</button>
+					<div class="flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
 						<button
 							onclick={() => (showPreferences = false)}
-							class="flex-1 rounded-full border border-qt-700 bg-transparent px-6 py-3 text-sm font-medium text-ms-600 transition-all hover:border-on-900 hover:text-on-900"
+							class="rounded-lg border-2 border-on-900 bg-transparent px-6 py-3 text-sm font-medium text-on-900 transition-all hover:bg-qt-600"
+							type="button"
 						>
 							ย้อนกลับ
 						</button>
+						<button
+							onclick={savePreferences}
+							class="rounded-lg bg-on-900 px-6 py-3 text-sm font-semibold text-ag-600 transition-all hover:bg-on-800 hover:shadow-lg"
+							type="button"
+						>
+							บันทึกการตั้งค่า
+						</button>
 					</div>
 				</div>
-			{/if}
+			</div>
 		</div>
-	</div>
+	{/if}
 {/if}
