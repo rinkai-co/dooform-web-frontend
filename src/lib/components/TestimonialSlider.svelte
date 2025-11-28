@@ -127,8 +127,8 @@
 								class="absolute h-full w-full object-cover"
 								loading="lazy"
 								decoding="async"
-								width="4000"
-								height="2250"
+								width="800"
+								height="450"
 							/>
 						</div>
 					</div>

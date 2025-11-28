@@ -38,8 +38,9 @@
 				src="/example.webp"
 				alt="Dooform application interface showing document filling features"
 				fetchpriority="high"
-				width="4596"
-				height="2236"
+				width="1400"
+				height="681"
+				loading="eager"
 			/>
 		</div>
 	</div>

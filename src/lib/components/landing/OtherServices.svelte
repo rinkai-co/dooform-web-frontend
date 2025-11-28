@@ -17,8 +17,8 @@
 				class="absolute inset-0 h-full w-full object-cover rounded-md"
 				loading="lazy"
 				decoding="async"
-				width="400"
-				height="533"
+				width="600"
+				height="800"
 			/>
 			<div class="relative z-10 flex w-full flex-col items-start gap-0.5 {service.textLight ? 'text-neutral-100' : 'text-neutral-800'}">
 				<p class="text-xs w-full">{service.subtitle}</p>
