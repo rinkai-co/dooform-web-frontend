@@ -108,10 +108,10 @@
 	{#if !showPreferences}
 		<!-- Main Cookie Banner -->
 		<div
-			class="fixed bottom-0 left-0 right-0 z-100 bg-white shadow-2xl"
+			class="fixed bottom-0 left-0 z-100 bg-white shadow-2xl w-fit m-4 rounded-lg"
 			transition:fly={{ y: 100, duration: 400 }}
 		>
-			<div class="mx-auto max-w-7xl px-6 py-6 font-sans sm:px-8 sm:py-8">
+			<div class="mx-auto max-w-xl px-6 py-6 font-sans sm:px-8 sm:py-8">
 				<h2 class="tp-h3 mb-4 text-on-900">เกี่ยวกับคุกกี้บน Dooform</h2>
 
 				<div class="mb-6">
@@ -131,7 +131,7 @@
 					<li>
 						<button
 							onclick={() => (showPreferences = true)}
-							class="w-full rounded-lg border-2 border-on-900 bg-transparent px-6 py-3 text-sm font-medium text-on-900 transition-all hover:bg-qt-600 sm:w-auto"
+							class="w-full border-2 bg-white px-3.5 py-2.5 text-sm font-semibold text-on-600 transition-all hover:bg-ag-100 hover:shadow-lg sm:w-auto"
 							aria-label="ปรับแต่ง"
 							type="button"
 						>
@@ -141,7 +141,7 @@
 					<li>
 						<button
 							onclick={acceptNecessary}
-							class="w-full rounded-lg border-2 border-on-900 bg-transparent px-6 py-3 text-sm font-medium text-on-900 transition-all hover:bg-qt-600 sm:w-auto"
+							class="w-full border-2 bg-on-900 px-3.5 py-2.5 text-sm font-semibold text-ag-600 transition-all hover:bg-on-800 hover:shadow-lg sm:w-auto"
 							aria-label="ปฏิเสธทั้งหมด"
 							type="button"
 						>
@@ -151,7 +151,7 @@
 					<li>
 						<button
 							onclick={acceptAll}
-							class="w-full rounded-lg bg-on-900 px-6 py-3 text-sm font-semibold text-ag-600 transition-all hover:bg-on-800 hover:shadow-lg sm:w-auto"
+							class="w-full border-2 bg-on-900 px-3.5 py-2.5 text-sm font-semibold text-ag-600 transition-all hover:bg-on-800 hover:shadow-lg sm:w-auto"
 							aria-label="ยอมรับทั้งหมด"
 							type="button"
 						>
