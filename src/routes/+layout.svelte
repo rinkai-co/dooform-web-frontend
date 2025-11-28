@@ -3,6 +3,7 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import logo from '$lib/assets/logo.svg';
 	import { ChevronDown, ArrowUpRight } from '@lucide/svelte';
+	import CookiePopup from '$lib/components/CookiePopup.svelte';
 
 	let { children } = $props();
 </script>
@@ -83,6 +84,33 @@
 		}
 	</script>
 	<link rel="icon" href={favicon} />
+
+	<!-- Google Consent Mode v2 - Must be loaded BEFORE GTM -->
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+
+		// Default consent to denied
+		gtag('consent', 'default', {
+			'analytics_storage': 'denied',
+			'ad_storage': 'denied',
+			'ad_user_data': 'denied',
+			'ad_personalization': 'denied',
+			'functionality_storage': 'granted',
+			'personalization_storage': 'denied',
+			'security_storage': 'granted',
+			'wait_for_update': 500
+		});
+	</script>
+
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-WW8R39NW');</script>
+	<!-- End Google Tag Manager -->
+
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link
@@ -95,7 +123,10 @@
 		rel="stylesheet"
 	/>
 </svelte:head>
-
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WW8R39NW"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <nav
 	class="bg-background/50 sticky top-0 z-50 flex h-16 w-full items-center justify-center border-b border-b-qt-700/10 px-6 font-sans backdrop-blur-xl"
 >
@@ -178,3 +209,4 @@
 		</div>
 	</div>
 </footer>
+<CookiePopup />
