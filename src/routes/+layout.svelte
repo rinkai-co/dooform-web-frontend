@@ -85,32 +85,7 @@
 	</script>
 	<link rel="icon" href={favicon} />
 
-	<!-- Google Consent Mode v2 - Must be loaded BEFORE GTM -->
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-
-		// Default consent to denied
-		gtag('consent', 'default', {
-			'analytics_storage': 'denied',
-			'ad_storage': 'denied',
-			'ad_user_data': 'denied',
-			'ad_personalization': 'denied',
-			'functionality_storage': 'granted',
-			'personalization_storage': 'denied',
-			'security_storage': 'granted',
-			'wait_for_update': 500
-		});
-	</script>
-
-	<!-- Google Tag Manager -->
-	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-	})(window,document,'script','dataLayer','GTM-WW8R39NW');</script>
-	<!-- End Google Tag Manager -->
-
+	
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link
@@ -123,90 +98,5 @@
 		rel="stylesheet"
 	/>
 </svelte:head>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WW8R39NW"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-<nav
-	class="bg-background/50 sticky top-0 z-50 flex h-16 w-full items-center justify-center border-b border-b-qt-700/10 px-6 font-sans backdrop-blur-xl"
->
-	<div class="mx-auto flex w-full max-w-7xl items-center justify-between">
-		<section class="flex items-center gap-12">
-			<a href="/" class="flex items-center">
-				<img src={logo} alt="Dooform logo" class="my-2 h-8" width="120" height="32" />
-			</a>
-			<ul class="hidden items-center gap-6 text-sm font-medium text-ms-500 md:flex">
-				<li class="flex items-center gap-2">
-					<a href="#">ผลิตภัณฑ์</a><ChevronDown class="w-5" />
-				</li>
-				<li class="flex items-center gap-2">
-					<a href="#">สำหรับธุรกิจ</a><ChevronDown class="w-5" />
-				</li>
-				<li class="flex items-center gap-2"><a href="#">แพ็คเกจ</a><ChevronDown class="w-5" /></li>
-				<li class="flex items-center gap-2">
-					<a href="#">เกี่ยวกับเว็บไซต์</a><ChevronDown class="w-5" />
-				</li>
-			</ul>
-		</section>
-		<a
-			href="https://app.dooform.com/"
-			class="flex h-8 items-center justify-center rounded-full bg-on-900 px-1.5 text-sm font-medium text-ag-600"
-		>
-			<p class="px-1.5">เข้าสู่ระบบ</p>
-		</a>
-	</div>
-</nav>
 {@render children()}
-<footer class="flex w-full justify-between font-sans text-sm">
-	<div class="mx-auto flex w-full max-w-7xl flex-col items-start gap-6 rounded-xl p-6 text-cb-900">
-		<div class="flex w-full flex-col items-start justify-between gap-6 lg:flex-row lg:gap-2">
-			<div class="flex shrink-0 flex-col items-start justify-center gap-2">
-				<img src={logo} alt="Dooform logo" class="my-2 h-8" width="120" height="32" />
-				<div class="flex flex-col gap-2">
-					<p>© 2025 Dooform by Knight Consultant <br /> Under License of Rinkai</p>
-				</div>
-			</div>
-			<div
-				class="grid w-full grid-cols-2 items-start gap-6 md:grid-cols-4 lg:flex lg:justify-end lg:gap-12"
-			>
-				<ul class="flex flex-col gap-2">
-					<li class="font-semibold">สำหรับพัฒนา</li>
-					<li><a href="/form" class="footer-link">Knowledge Base</a></li>
-					<li><a href="/components" class="footer-link">Components</a></li>
-				</ul>
-				<ul class="flex flex-col gap-2">
-					<li class="font-semibold">เกี่ยวกับแอปพลิเคชั่น</li>
-					<li><a href="/about" class="footer-link">รายการเอกสาร</a></li>
-					<li><a href="/terms" class="footer-link">คำแนะนำในการใช้งาน</a></li>
-					<li><a href="/privacy" class="footer-link">เอกสารประกอบการใช้งาน</a></li>
-					<li><a href="/privacy" class="footer-link">รายงานวิเคราะห์คุณภาพ</a></li>
-					<li><a href="/privacy" class="footer-link">ทีมพัฒนา</a></li>
-					<li><a href="/privacy" class="footer-link">เกี่ยวกับเว็บไซต์</a></li>
-				</ul>
-				<ul class="flex flex-col gap-2">
-					<li class="font-semibold">สำหรับหน่วยงานธุรกิจ</li>
-					<li><a href="/about" class="footer-link">แพลนสำหรับหน่วยงาน</a></li>
-					<li><a href="/terms" class="footer-link">ค่าบริการ</a></li>
-					<li><a href="/privacy" class="footer-link">ติดต่อสอบถาม</a></li>
-				</ul>
-				<ul class="flex flex-col gap-2">
-					<li class="font-semibold">ข้อบังคับทางกฎหมาย</li>
-					<li><a href="/about" class="footer-link">ข้อตกลงในการใช้งาน</a></li>
-					<li><a href="/terms" class="footer-link">นโยบายการจัดเก็บข้อมูล</a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="flex w-full flex-col items-center justify-between gap-2 sm:flex-row">
-			<ul class="flex flex-col items-start justify-start">
-				<li class="flex items-center gap-1">
-					<a href="https://www.knightvisahelppoint.com/" class="footer-link"
-						>knight consultant worldwide company limited</a
-					>
-					<ArrowUpRight class="h-4 w-4" />
-				</li>
-			</ul>
-			<p>การใช้งานเว็บไซต์นี้นับว่าคุณได้ยอมรับเงื่อนไขในการใช้งานเรียบร้อย</p>
-		</div>
-	</div>
-</footer>
 <CookiePopup />

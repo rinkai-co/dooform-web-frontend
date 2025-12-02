@@ -1,70 +1,37 @@
 <script>
-	import TestimonialSlider from '$lib/components/TestimonialSlider.svelte';
-	import CompanyLogos from '$lib/components/landing/CompanyLogos.svelte';
-	import DocumentSection from '$lib/components/landing/DocumentSection.svelte';
-	import APIIntegration from '$lib/components/landing/APIIntegration.svelte';
-	import FileHistory from '$lib/components/landing/FileHistory.svelte';
-	import FeaturesGrid from '$lib/components/landing/FeaturesGrid.svelte';
-	import OtherServices from '$lib/components/landing/OtherServices.svelte';
-	import PricingSection from '$lib/components/landing/PricingSection.svelte';
-	import SignUpSection from '$lib/components/landing/SignUpSection.svelte';
+	import { AlertTriangle } from "@lucide/svelte";
+	import logo from '$lib/assets/logo.svg';
 </script>
 
-<main>
-	<div
-		class="mx-auto flex h-screen w-full max-w-[1216px] flex-col items-center justify-center rounded-2xl font-sans"
-	>
-		<div class="flex w-full flex-col items-center justify-center gap-4 py-8">
-			<div class="flex flex-col items-center justify-center">
-				<h1 class="text-center text-3xl font-semibold text-ms-800 md:text-6xl md:leading-20">
-					กรอกเอกสาร<br />ไม่ใช่เรื่องยากอีกต่อไป
-				</h1>
-				<p class="font-medium text-ms-600 lg:text-xl">
-					ดูฟอร์ม ผู้ช่วยกรอกเอกสารราชการได้อย่างรวดเร็ว
-				</p>
-			</div>
-			<a
-				href="https://www.app.dooform.com/"
-				class="flex h-12 items-center justify-center rounded-full bg-on-900 px-3.5 text-base font-medium text-ag-600"
-			>
-				<p class="px-1.5">เริ่มต้นใช้งาน</p>
-			</a>
-		</div>
-		<div
-			class="flex h-2/3 w-full items-center justify-center overflow-hidden rounded-t-4xl border-x-12 border-t-12 border-neutral-200 [mask-image:linear-gradient(to_bottom,black_60%,transparent)]"
-		>
-			<img
-				class="h-full w-full object-cover"
-				src="/example.webp"
-				alt="Dooform application interface showing document filling features"
-				fetchpriority="high"
-				width="1400"
-				height="681"
-				loading="eager"
-			/>
-		</div>
-	</div>
-
-	<!-- Landing Page Sections -->
-	<div class="flex w-full flex-col items-center">
-		<div class="grid w-full max-w-[1216px] mx-auto grid-cols-3 border-x-[1.5px] border-pl-700">
-		<TestimonialSlider />
+<section class="min-h-screen flex flex-col items-center justify-center font-sans px-12">
+	<p class="font-medium">Security By</p>
+	<a href="https://www.dooform.com/" class="flex items-end text-xl font-semibold">
+		<img src={logo} alt="Dooform logo" class="mb-2 h-8" />
 		
-		<CompanyLogos />
-
-		<DocumentSection />
-
-		<APIIntegration />
-
-		<FileHistory />
-
-		<FeaturesGrid />
-
-		<OtherServices />
-
-		<PricingSection />
-
-		<SignUpSection />
-		</div>
+	</a>	
+	<div class="p-3 rounded-2xl border border-stone-200 max-w-sm  bg-stone-50 mb-4">
+		<p class="px-2 py-0.5 rounded-full border border-stone-200 flex items-center justify-center text-sm font-semibold w-fit gap-1.5">
+			<AlertTriangle
+			className="w-4 h-4 text-amber-600"
+			fill="#ffd230"
+			strokeWidth={2}
+			/>
+			คำเตือน
+		</p>
+		<p class="text-sm p-1 pt-2">
+			เว็บไซต์นี้ไม่ใช่บริการหลักของ Dooform โปรดคลิกลิงก์ด้านล่างเพื่อไปยัง Dooform
+		</p>
 	</div>
-</main>
+	<a
+	href="https://dooform.com/"
+	class="flex h-8 items-center justify-center rounded-full bg-on-900 px-1.5 text-sm font-medium text-ag-600"
+	>
+		<p class="px-1.5">ไปที่ Dooform</p>
+	</a>		
+	
+			
+</section>
+
+<div>
+	
+</div>
